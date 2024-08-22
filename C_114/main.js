@@ -1,3 +1,6 @@
+noseX=0;
+noseY=0;
+
 function preload() {
     panda = loadImage('https://i.postimg.cc/sDXg7qRk/61oymh-Nn5v-L-AC-UF894-1000-QL80-removebg-preview.png');
 }
@@ -18,6 +21,7 @@ function modelLoaded() {
 
 function draw() {
     image(video, 0, 0, 300, 300);
+    image(panda, noseX, noseY, 200, 200)
 }
   
 function take_snapshot(){    
@@ -31,5 +35,7 @@ function gotPoses(results)
     console.log(results);
     console.log("nose x = " + results[0].pose.nose.x);
     console.log("nose y = " + results[0].pose.nose.y);
+    noseX = results[0].pose.nose.x-100;
+    noseY = results[0].pose.nose.y-100;
   }
 }
